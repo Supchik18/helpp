@@ -1,38 +1,29 @@
-﻿
-import java.util.Scanner;
-public class Main {
+#include <iostream>
+using namespace std;
 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    const int a = 3;
+    const int c = 5;
+    float arr[a][c];
 
-    public class TriangleType {
-        public static void main(String[] args) {
-            Scanner scanner = new Scanner(System.in);
-
-            System.out.print("Введите сторону a: ");
-            int a = Integer.parseInt(scanner.nextLine());
-
-            System.out.print("Введите сторону b: ");
-            int b = Integer.parseInt(scanner.nextLine());
-
-            System.out.print("Введите сторону c: ");
-            int c = Integer.parseInt(scanner.nextLine());
-
-            if ((a * a + b * b == c * c) || (b * b + c * c == a * a) || (c * c + a * a == b * b)) {
-                System.out.println("a, b и c являются сторонами прямоугольного треугольника");
-            }
-            else if (a == b || b == c || c == a) {
-                System.out.println("a, b и c являются сторонами равнобедренного треугольника");
-            }
-            else if (a == b && b == c) {
-                System.out.println("a, b и c являются сторонами равностороннего треугольника");
-            }
-            else if ((a + b <= c) || (b + c <= a) || (c + a <= b)) {
-                System.out.println("a, b и c не являются сторонами треугольника");
-            }
-            else {
-                System.out.println("a, b и c являются сторонами обычного треугольника");
-            }
-
-            scanner.close();
+    // Ввод элементов двумерного массива с клавиатуры
+    for (int i = 0; i < a; i++) {
+        cout << "Введите элементы для строки " << i + 1 << " (разделенные пробелом): ";
+        for (int j = 0; j < c; j++) {
+            cin >> arr[i][j];
         }
     }
+
+    // Вычисление среднего арифметического элементов строк и вывод результатов
+    for (int i = 0; i < a; i++) {
+        float f = 0;
+        for (int j = 0; j < c; j++) {
+            f += arr[i][j];
+        }
+        float w = f / c;
+        cout << "Среднее арифметическое элементов строки " << i + 1 << ": " << w << endl;
+    }
+
+    return 0;
 }
